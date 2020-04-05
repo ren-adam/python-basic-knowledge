@@ -26,11 +26,15 @@ def find_prime_number_in_range(range_start, range_end):
     :param range_end:
     :return: 计算结果列表
     """
-    start = min(range_start, range_end)
-    end = max(range_start, range_end)
 
-    if start < 2:
-        start = 2
+    # 检查数据的合法性
+    if range_start < 2:
+        range_start = 2
+    if range_end < 2:
+        range_end = 2
+
+    start = min(range_start, range_end)
+    end = max(range_start, range_end) + 1
 
     prime_number_list = []
     for i in range(start, end):
@@ -45,8 +49,8 @@ def find_prime_number_in_range(range_start, range_end):
     return prime_number_list
 
 
-start = 1
-end = 100000
+start = 1000
+end = 1
 print('wait to find prime number(s) between {} to {}'.format(start, end))
 result = find_prime_number_in_range(start, end)
 print()
